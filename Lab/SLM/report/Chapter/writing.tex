@@ -123,6 +123,270 @@ Also, we can write some more parameters of ellipse in terms of $\delta$ and $\al
 
 \subsection{Stokes Vector and Muller Matrix}
 
+The \emph{Stokes vector} is a convenient method for describing the polarization state of light using measurable intensity quantities. It consists of four parameters $(S_0, S_1, S_2, S_3)$, where $S_0$ represents the total intensity, while $S_1$, $S_2$, and $S_3$ characterize the linear and circular polarization components. Since these parameters can be obtained experimentally using polarizers and wave plates, the Stokes formalism is widely used in polarization analysis and optical characterization.
+
+We now write the quantities inside the parentheses as
+\begin{subequations}
+    \begin{align}
+    S_0 &= E_{0x}^{\,2} + E_{0y}^{\,2}, \label{eq:S_0}\\
+    S_1 &= E_{0x}^{\,2} - E_{0y}^{\,2}, \label{eq:S_1}\\
+    S_2 &= 2E_{0x}E_{0y}\cos\delta, \label{eq:S_2}\\
+    S_3 &= 2E_{0x}E_{0y}\sin\delta, \label{eq:S_3}
+    \end{align}
+\end{subequations}
+and then using the \cref{eq:polarization-ellipse} we can write
+\begin{equation}
+S_0^{2} = S_1^{2} + S_2^{2} + S_3^{2}.
+\end{equation}
+Also the other parameters of the polarization ellipse can be write interms of Stokes vectors
+\begin{subequations}
+    \begin{align}
+        \tan{2\Psi} = \frac{S_{2}}{S_{1}}, \\
+        \sin{2\chi} = \frac{S_{3}}{S_{0}}.
+    \end{align}
+\end{subequations}
+And the degree of polarization are defined as following
+
+\begin{equation}
+P = \frac{I_{\mathrm{pol}}}{I_{\mathrm{tot}}}
+= \frac{\left(S_1^{2}+S_2^{2}+S_3^{2}\right)^{1/2}}{S_0},
+\qquad 0 \le P \le 1 .
+\end{equation}
+
+where $I_{\mathrm{pol}}$ is the intensity of the sum of the polarization components and $I_{\mathrm{tot}}$ is the total intensity of the beam. The value of $P=1$ corresponds to completely polarized light, $P=0$ corresponds to unpolarized light, and $0<P<1$ corresponds to partially polarized light.
+
+Thus these parameters can be directly determined by the following six intensity measurements $(I)$ performed with ideal polarizers: $I_H$, horizontal linear polarizer $(0^\circ)$; $I_V$, vertical linear polarizer $(90^\circ)$; $I_P$, $45^\circ$ linear polarizer; $I_M$, $135^\circ$ ($-45^\circ$) linear polarizer; $I_R$, right circular polarizer; and $I_L$, left
+circular polarizer.
+
+\begin{equation}
+\mathbf{S} =
+\begin{bmatrix}
+I \\ Q \\ U \\ V
+\end{bmatrix}
+=
+\begin{bmatrix}
+I_H + I_V \\
+I_H - I_V \\
+I_P - I_M \\
+I_R - I_L
+\end{bmatrix}.
+\end{equation}
+
+\begin{table}[H]
+\centering
+\caption{Stokes vectors for different polarization states}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\toprule
+State & H & V & P & M & R & L & Elliptical \\
+\midrule
+
+$\mathbf{S}$ &
+$\begin{pmatrix}1\\[2pt]1\\[2pt]0\\[2pt]0\end{pmatrix}$ &
+$\begin{pmatrix}1\\[2pt]-1\\[2pt]0\\[2pt]0\end{pmatrix}$ &
+$\begin{pmatrix}1\\[2pt]0\\[2pt]1\\[2pt]0\end{pmatrix}$ &
+$\begin{pmatrix}1\\[2pt]0\\[2pt]-1\\[2pt]0\end{pmatrix}$ &
+$\begin{pmatrix}1\\[2pt]0\\[2pt]0\\[2pt]1\end{pmatrix}$ &
+$\begin{pmatrix}1\\[2pt]0\\[2pt]0\\[2pt]-1\end{pmatrix}$ &
+$\begin{pmatrix}
+1\\[2pt]
+\cos 2\alpha\\[2pt]
+\sin 2\alpha \cos\delta\\[2pt]
+\sin 2\alpha \sin\delta
+\end{pmatrix}$ \\
+
+\bottomrule
+\end{tabular}
+
+\label{tab:stokes_vectors}
+\end{table}
+
+The \emph{Mueller matrix} provides a general framework for describing how an optical system modifies the polarization state of light. It relates the incident and transmitted Stokes vectors through a $4\times4$ real matrix and can represent fully polarized, partially polarized, and unpolarized light. Owing to its basis in measurable intensity quantities, the Mueller matrix formalism is widely used for polarization analysis and characterization of optical elements.
+
+In matrix form this can be write as 
+\begin{equation}
+\begin{pmatrix}
+S_0' \\
+S_1' \\
+S_2' \\
+S_3'
+\end{pmatrix}
+=
+\begin{pmatrix}
+m_{00} & m_{01} & m_{02} & m_{03} \\
+m_{10} & m_{11} & m_{12} & m_{13} \\
+m_{20} & m_{21} & m_{22} & m_{23} \\
+m_{30} & m_{31} & m_{32} & m_{33}
+\end{pmatrix}
+\begin{pmatrix}
+S_0 \\
+S_1 \\
+S_2 \\
+S_3
+\end{pmatrix}
+\end{equation}
+
+or
+\begin{equation}
+\mathbf{S}' = \mathbf{M}\cdot \mathbf{S}.
+\end{equation}
+
+\subsection{Medium Polarization Characteristics}
+
+A transparent optical medium is generally characterized by three
+fundamental polarization properties: diattenuation, depolarization, and retardance. In this experiment, the primary focus is on determining the retardance of the material. Retardance originates from the birefringent nature of a medium and produces a phase difference between orthogonal polarization components of light. This phase difference depends on the thickness and optical properties of the material. Retardance can be classified into two main types.
+
+\begin{enumerate}
+\item \textbf{Linear retardance:}
+Linear retardance arises from a phase delay between two \textit{orthogonal linear polarization components}. It results from linear birefringence, which occurs due to anisotropy in the medium, leading to different refractive indices for orthogonal polarization directions. For a medium of thickness $L$, the linear retardance is given by
+\begin{equation}
+\delta = \frac{2\pi}{\lambda}(n_x - n_y)L,
+\end{equation}
+
+where $\lambda$ denotes the wavelength of light, and $n_x$ and $n_y$ represent the refractive indices along two orthogonal axes.
+
+\item \textbf{Circular retardance:}
+Circular retardance corresponds to \textit{the phase difference between right- and left-circularly polarized light}. This effect originates from circular birefringence, typically present in optically active media lacking mirror symmetry. Such anisotropy produces different refractive indices for the two circular polarization states. For a propagation length $L$, the circular retardance is expressed as
+
+\begin{equation}
+\delta_c = \frac{2\pi}{\lambda}(n_R - n_L)L,
+\end{equation}
+
+where $n_R$ and $n_L$ are the refractive indices for right- and
+left-circularly polarized light, respectively. \textit{Circular retardance manifests as optical rotation}, corresponding to the rotation of the plane of linear polarization about the propagation axis, with rotation angle
+
+\begin{equation}
+\psi = \frac{\delta_c}{2}.
+\end{equation}
+
+\end{enumerate}
+
+\subsection{Spatial Light Modulator (SLM)}
+The \emph{Spatial Light Modulator} (SLM) is an opto-electronic device used to control the spatial properties of a light beam by modulating its amplitude, phase, or polarization. Most commonly, SLMs are based on liquid crystal technology, where a pixelated layer of liquid crystals is placed between polarizing elements. When an external voltage is applied to each pixel, the orientation of the liquid crystal molecules changes, altering the polarization state of the transmitted light and thereby controlling its intensity or phase. Because each pixel can be addressed electronically through a computer, SLMs enable dynamic and real-time manipulation of optical wavefronts, allowing the 
+generation of programmable amplitude and phase patterns for various applications in beam shaping, holography, and optical experiments.
+
+Since the SLM is made of liquid crystals which rotate and align according to the voltage applied to them, the general form of the Mueller matrix of an SLM can be written as a retarder matrix multiplied with a rotation matrix. Now the Muller matrix for a retarder (or compensator) with fast axis toward x-axis can be written as 
+
+\begin{equation}
+M_c =
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & \cos\delta & \sin\delta \\
+0 & 0 & -\sin\delta & \cos\delta
+\end{pmatrix}
+\end{equation}
+
+For $\theta$ angle rotated wave plate we can write 
+
+\begin{subequations}
+    \begin{align}
+        M_c(\delta,2\theta) &= M_R(-2\theta)M_cM_R(2\theta) \\ 
+        M_R(2\theta) &=
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & \cos 2\theta & \sin 2\theta & 0 \\
+        0 & -\sin 2\theta & \cos 2\theta & 0 \\
+        0 & 0 & 0 & 1
+        \end{pmatrix}
+    \end{align}
+\end{subequations}
+
+So we can write 
+
+\begin{equation}
+    M_c(\delta,2\theta)=
+    \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & \cos^2 2\theta + \cos\delta\,\sin^2 2\theta &
+    (1-\cos\delta)\sin 2\theta \cos 2\theta &
+    -\sin\delta \sin 2\theta \\
+    0 & (1-\cos\delta)\sin 2\theta \cos 2\theta &
+    \sin^2 2\theta + \cos\delta\,\cos^2 2\theta &
+    \sin\delta \cos 2\theta \\
+    0 & \sin\delta \sin 2\theta &
+    -\sin\delta \cos 2\theta &
+    \cos\delta
+    \end{pmatrix}.
+\end{equation}
+
+Now at the end for SLM we can write 
+
+\begin{subequations}
+    \begin{align}
+        & M_{\mathrm{SLM}} = M_{c}(\delta,2\theta) \times M_{R}(-2\Psi) \\
+        & = 
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & \cos^{2}2\theta + \sin^{2}2\theta \cos\delta
+        & \sin2\theta\cos2\theta(1-\cos\delta)
+        & -\sin2\theta\sin\delta \\
+        0 & \sin2\theta\cos2\theta(1-\cos\delta)
+        & \sin^{2}2\theta + \cos^{2}2\theta \cos\delta
+        & \cos2\theta\sin\delta \\
+        0 & \sin2\theta\sin\delta
+        & -\cos2\theta\sin\delta
+        & \cos\delta
+        \end{pmatrix}
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & \cos2\psi & -\sin2\psi & 0 \\
+        0 & \sin2\psi & \cos2\psi & 0 \\
+        0 & 0 & 0 & 1
+        \end{pmatrix} \\
+        &\begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & \cos 2\theta \cos(2\theta-2\psi) + \sin 2\theta \cos\delta \sin(2\theta-2\psi) &  -\cos\delta \sin 2\theta \cos(2\theta-2\psi) + \cos 2\theta \sin(2\theta-2\psi)
+        &  -\sin\delta \sin 2\theta \\
+        0 & \sin 2\theta \cos(2\theta-2\psi)- \cos 2\theta \cos\delta \sin(2\theta-2\psi) & \cos\delta \cos 2\theta \cos(2\theta-2\psi) + \sin 2\theta \sin(2\theta-2\psi) & \cos 2\theta \sin\delta \\
+        0 &  \sin\delta \sin(2\theta-2\psi) & -\cos(2\theta-2\psi)\sin\delta & \cos\delta
+        \end{pmatrix}
+    \end{align}
+\end{subequations}
+
+Now as per the experiment once we take $I_{H}$ polarized light and another time we take $I_P$ polarized light. By applying the SLM matrix we can find
+
+\begin{equation}
+    S_H = M_{\mathrm{SLM}} \times \begin{pmatrix}1\\[2pt]1\\[2pt]0\\[2pt]0\end{pmatrix} = \begin{pmatrix}
+    1 \\
+    \cos 2\theta \cos(2\theta-2\psi)
+    + \sin 2\theta \cos\delta \sin(2\theta-2\psi) \\
+    \sin 2\theta \cos(2\theta-2\psi)
+    - \cos 2\theta \cos\delta \sin(2\theta-2\psi) \\
+    \sin(2\theta-2\psi)\sin\delta
+    \end{pmatrix}
+\end{equation}
+
+and, 
+
+\begin{equation}
+        S_P = M_{\mathrm{SLM}} \times \begin{pmatrix}1\\[2pt]0\\[2pt]1\\[2pt]0\end{pmatrix} = \begin{pmatrix}
+        1 \\
+        -\cos\delta \sin 2\theta \cos(2\theta-2\psi)
+        + \cos 2\theta \sin(2\theta-2\psi) \\
+        \cos\delta \cos 2\theta \cos(2\theta-2\psi)
+        + \sin 2\theta \sin(2\theta-2\psi) \\
+        -\cos(2\theta-2\psi)\sin\delta
+        \end{pmatrix}
+\end{equation}
+
+So finally we can write 
+
+\begin{subequations}
+    \begin{align}
+    S_H(2) + S_P(3) &= (1+\cos\delta)\cos 2\psi = X_1, \\
+    S_H(3) - S_P(2) &= (1+\cos\delta)\sin 2\psi = Y_1,
+    \end{align}
+\end{subequations}
+
+\begin{equation}
+\boxed{\delta = \cos^{-1}\!\left[\sqrt{X_1^{2}+Y_1^{2}} - 1 \right]}
+\end{equation}
+
+\begin{equation}
+\boxed{\psi = \frac{1}{2}\tan^{-1}\!\left(\frac{Y_1}{X_1}\right)}.
+\end{equation}
+
+where $\delta$ is \emph{linear retardance} and $\Psi$ is \emph{optical rotation}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Set up and Procedure}
 This experiment has two parts. In the first part, we did measure the angles of polarizers (P1 and P2) for Horizontal polarization. And in the later part we did Stokes polarimetry for SLM. 
