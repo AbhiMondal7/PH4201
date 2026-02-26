@@ -261,8 +261,7 @@ left-circularly polarized light, respectively. \textit{Circular retardance manif
 \end{enumerate}
 
 \subsection{Spatial Light Modulator (SLM)}
-The \emph{Spatial Light Modulator} (SLM) is an opto-electronic device used to control the spatial properties of a light beam by modulating its amplitude, phase, or polarization. Most commonly, SLMs are based on liquid crystal technology, where a pixelated layer of liquid crystals is placed between polarizing elements. When an external voltage is applied to each pixel, the orientation of the liquid crystal molecules changes, altering the polarization state of the transmitted light and thereby controlling its intensity or phase. Because each pixel can be addressed electronically through a computer, SLMs enable dynamic and real-time manipulation of optical wavefronts, allowing the 
-generation of programmable amplitude and phase patterns for various applications in beam shaping, holography, and optical experiments.
+The \emph{Spatial Light Modulator} (SLM) is an opto-electronic device used to control the spatial properties of a light beam by modulating its amplitude, phase, or polarization. Most commonly, SLMs are based on liquid crystal technology, where a pixelated layer of liquid crystals is placed between polarizing elements. When an external voltage is applied to each pixel, the orientation of the liquid crystal molecules changes, altering the polarization state of the transmitted light and thereby controlling its intensity or phase. Because each pixel can be addressed electronically through a computer, SLMs enable dynamic and real-time manipulation of optical wavefronts, allowing the generation of programmable amplitude and phase patterns for various applications in beam shaping, holography, and optical experiments.
 
 Since the SLM is made of liquid crystals which rotate and align according to the voltage applied to them, the general form of the Mueller matrix of an SLM can be written as a retarder matrix multiplied with a rotation matrix. Now the Muller matrix for a retarder (or compensator) with fast axis toward x-axis can be written as 
 
@@ -805,15 +804,17 @@ The maximum uncertainty in $S_H(3)$ is
 
 Substituting numerical values,
 
-\begin{align}
-\Delta S_H(3)_{\max}
-&=
-\frac{0.2}{9.7}
-+
-\frac{2(2.4)}{(9.7)^2}(0.1) \\
-&=0.0206+0.0051 \\
-&=0.0257.
-\end{align}
+\begin{equation}
+    \begin{aligned}
+    \Delta S_H(3)_{\max}
+    &=
+    \frac{0.2}{9.7}
+    +
+    \frac{2(2.4)}{(9.7)^2}(0.1) \\
+    &=0.0206+0.0051 \\
+    &=0.0257.
+    \end{aligned}
+\end{equation}
 
 For the $+45^\circ$ input state,
 
@@ -827,39 +828,47 @@ Total intensity:
 I=144.0~\mu A.
 \]
 
-\begin{align}
-S_P(2)&=\frac{56.2-87.8}{144.0}=-0.219,\\
-S_P(3)&=\frac{139.8-3.1}{144.0}=0.949.
-\end{align}
+\begin{subequations}
+    \begin{align}
+    S_P(2)&=\frac{56.2-87.8}{144.0}=-0.219,\\
+    S_P(3)&=\frac{139.8-3.1}{144.0}=0.949.
+    \end{align}
+\end{subequations}
 
-\begin{align}
-\Delta S_P(2)_{\max}
-&=\frac{2(0.1)}{144.0}
-=0.00139,\\[6pt]
-\Delta S_P(3)_{\max}
-&=
-\frac{0.2}{144.0}
-+
-\frac{2(136.7)}{(144)^2}(0.1) \\
-&=0.00139+0.00132 \\
-&=0.00271.
-\end{align}
+\begin{equation}
+    \begin{aligned}
+    \Delta S_P(2)_{\max}
+    &=\frac{2(0.1)}{144.0}
+    =0.00139,\\[6pt]
+    \Delta S_P(3)_{\max}
+    &=
+    \frac{0.2}{144.0}
+    +
+    \frac{2(136.7)}{(144)^2}(0.1) \\
+    &=0.00139+0.00132 \\
+    &=0.00271.
+    \end{aligned}
+\end{equation}
 
-\begin{align}
-X &= 0.959+0.949=1.908,\\
-Y &= 0.247-(-0.219)=0.466.
-\end{align}
+\begin{subequations}
+    \begin{align}
+    X &= 0.959+0.949=1.908,\\
+    Y &= 0.247-(-0.219)=0.466.
+    \end{align}
+\end{subequations}
 
 Maximum uncertainties:
 
-\begin{align}
-\Delta X_{\max}
-&=0.0206+0.00271
-=0.0233,\\
-\Delta Y_{\max}
-&=0.0257+0.00139
-=0.0271.
-\end{align}
+\begin{subequations}
+    \begin{align}
+    \Delta X_{\max}
+    &=0.0206+0.00271
+    =0.0233,\\
+    \Delta Y_{\max}
+    &=0.0257+0.00139
+    =0.0271.
+    \end{align}
+\end{subequations}
 
 \subsubsection*{Error in Optical Rotation}
 \[
@@ -875,13 +884,15 @@ Maximum uncertainties:
 
 Substituting values,
 
-\begin{align}
-\Delta\psi_{\max}
-&=
-\frac{(0.466)(0.0233)+(1.908)(0.0271)}
-{2(1.908^2+0.466^2)} \\
-&=0.0081~\text{rad}.
-\end{align}
+\begin{equation}
+    \begin{aligned}
+    \Delta\psi_{\max}
+    &=
+    \frac{(0.466)(0.0233)+(1.908)(0.0271)}
+    {2(1.908^2+0.466^2)} \\
+    &=0.0081~\text{rad}.
+    \end{aligned}
+\end{equation}
 \subsubsection*{Error in Linear Retardance}
 \[
 \delta=\cos^{-1}\left(\sqrt{X^2+Y^2}-1\right).
@@ -902,9 +913,61 @@ Substituting numerical values,
 
 The same procedure was followed for all other grey levels to obtain the maximum uncertainties in linear retardance and optical rotation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Source of Error}
+\section{Sources of Error}
+
+The uncertainties in the determination of linear retardance and optical rotation arise from several experimental and instrumental limitations. The major sources of error in the present experiment are listed below.
+
+\begin{enumerate}
+
+\item \textbf{Photodetector Resolution:}  
+The dominant source of uncertainty originates from the finite resolution of the photodetector. The smallest measurable current was $0.1~\mu$A, which limits the precision of all intensity measurements and directly propagates into the calculated Stokes parameters.
+
+\item \textbf{Laser Intensity Fluctuations:}  
+Temporal fluctuations in the laser output power lead to variations in measured intensities during successive measurements, affecting the accuracy of normalized Stokes parameters.
+
+\item \textbf{Polarizer Misalignment:}  
+Small angular misalignment of the input polarizer (P1) and analyzer (P2) from their intended orientations introduces systematic errors in the measured polarization components. The least count of this angle is $2^{\circ}$.
+
+\item \textbf{Finite Extinction Ratio of Polarizers:}  
+Real polarizers do not completely block the orthogonal polarization component. Leakage of unwanted polarization reduces measurement contrast and modifies the evaluated Stokes parameters.
+
+\item \textbf{Mechanical Rotation Stage Error:}  
+Limited angular resolution and backlash in the rotation mounts can produce slight deviations from the desired polarization angles.
+
+\item \textbf{SLM Pixel Non-uniformity:}  
+The liquid crystal pixels of the SLM may not respond uniformly to the applied grey level, causing spatial variation in phase retardation across the beam.
+
+\item \textbf{Beam Alignment and Positioning Errors:}  
+Imperfect alignment of the laser beam through the optical components may lead to partial clipping or non-uniform illumination of the SLM surface. During our experiment one of the screw which hold the laser was missing.
+
+\item \textbf{Background and Ambient Light:}  
+Stray ambient light and detector dark current contribute additional signal offsets, especially for low-intensity measurements.
+
+\end{enumerate}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
+
+The variation of linear retardance ($\delta$) and optical rotation ($\psi$) with grey level of the spatial light modulator (SLM) was determined using Stokes vector measurements. The obtained plots show clear dependence of the polarization properties of the SLM on the applied grey scale value, which controls the voltage across the liquid crystal layer. While the overall behaviour follows the expected physical mechanism of liquid crystal modulation, noticeable deviations from an ideal theoretical trend are observed. The experimental results are
+discussed below.
+
+\begin{itemize}
+    \item \textbf{Expected behaviour of linear retardance:} In a nematic liquid crystal SLM, the applied grey level determines the effective voltage across the liquid crystal molecules. Increasing voltage causes the molecules to progressively align along the electric field direction, thereby reducing the effective birefringence experienced by the incident light. \emph{The retardance is theoretically expected to decrease approximately monotonically with increasing grey level}. \emph{The experimental plot shows an overall variation consistent with voltage-controlled phase modulation, although the change is not perfectly monotonic.} Such deviations arise because the electro--optic response of liquid crystals is inherently nonlinear, and the grey level does not correspond linearly to the applied voltage due to internal device calibration and digital driving electronics.
+    \item \textbf{Expected behaviour of optical rotation:} Optical rotation originates from circular birefringence and depends on the orientation of the liquid crystal director relative to the incident polarization state. Unlike linear retardance, optical rotation does not necessarily vary monotonically with applied voltage. As the liquid crystal molecules reorient, the coupling between orthogonal polarization components changes in a complex manner, which can produce increases, decreases, or near-zero values of rotation at different grey levels. \emph{Therefore, the non-monotonic variation observed in the optical rotation plot is consistent with the expected behaviour of liquid crystal polarization modulation rather than an indication of experimental failure.}
+    \item \textbf{Nonlinear voltage--phase relationship:} The grey scale values applied to the SLM are digitally mapped to driving voltages through internal electronics. This mapping is typically nonlinear (gamma correction), resulting in a nonlinear relationship between grey level and phase retardation. Consequently, equal steps in grey level do not produce equal changes in retardance, leading to departure from an ideal smooth curve.
+    \item \textbf{Imperfect polarization preparation and alignment:} The theoretical analysis assumes perfectly defined input polarization states and ideal analyzer orientations. In practice, finite extinction ratios of polarizers and slight angular misalignment introduce residual polarization components, which modify the measured Stokes parameters and affect the extracted values of retardance and optical rotation.
+    \item \textbf{SLM pixel non-uniformity: } The liquid crystal alignment across the SLM surface is not perfectly uniform. Since the detector measures the averaged transmitted intensity over many pixels, spatial variations in phase modulation lead to systematic deviations from the behaviour expected for an ideal uniform retarder.
+
+\end{itemize}
+
+Despite quantitative deviations from the ideal theoretical behaviour, the experimental results clearly demonstrate that both linear retardance and optical rotation depend on the applied grey level, confirming voltage-controlled manipulation of polarization by the liquid crystal SLM. The observed trends are therefore consistent with the fundamental operating principle of a phase-modulating spatial light modulator.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
+
+In this experiment, the polarization characteristics of a spatial light modulator (SLM) were studied using Stokes vector polarimetry. The linear
+retardance and optical rotation were determined from measured intensity data for different grey levels applied to the SLM. The results show that
+the retardance varies systematically with grey level while the optical rotation displays a non-monotonic behaviour consistent with changes in molecular orientation.
+
+Deviations from ideal theoretical behaviour are attributed to the nonlinear response of the liquid crystal, alignment imperfections, and finite detector resolution. Overall, the experiment successfully demonstrates voltage-controlled polarization modulation by the SLM and confirms the usefulness of the Stokes--Mueller formalism for characterizing polarization-modifying optical elements.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
