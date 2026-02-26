@@ -123,7 +123,7 @@ Also, we can write some more parameters of ellipse in terms of $\delta$ and $\al
 
 \subsection{Stokes Vector and Muller Matrix}
 
-The \emph{Stokes vector} is a convenient method for describing the polarization state of light using measurable intensity quantities. It consists of four parameters $(S_0, S_1, S_2, S_3)$, where $S_0$ represents the total intensity, while $S_1$, $S_2$, and $S_3$ characterize the linear and circular polarization components. Since these parameters can be obtained experimentally using polarizers and wave plates, the Stokes formalism is widely used in polarization analysis and optical characterization.
+The \emph{Stokes vector} is a convenient method for describing the polarization state of light using measurable intensity quantities. It consists of four parameters $(S_0, S_1, S_2, S_3)$, where $S_0$ represents the total intensity, while $S_1$, $S_2$, and $S_3$ characterize the linear and circular polarization components. Since these parameters can be obtained experimentally using polarizers and wave plates, the Stokes formalism is widely used in polarization analysis and optical characterization \cite{DuttaGupta2015WaveOptics}.
 
 We now write the quantities inside the parentheses as
 \begin{subequations}
@@ -345,7 +345,7 @@ Now at the end for SLM we can write
 
 Now as per the experiment once we take $I_{H}$ polarized light and another time we take $I_P$ polarized light. By applying the SLM matrix we can find
 
-\begin{equation}
+\begin{equation} \label{eq:Stokes_SH}
     S_H = M_{\mathrm{SLM}} \times \begin{pmatrix}1\\[2pt]1\\[2pt]0\\[2pt]0\end{pmatrix} = \begin{pmatrix}
     1 \\
     \cos 2\theta \cos(2\theta-2\psi)
@@ -358,7 +358,7 @@ Now as per the experiment once we take $I_{H}$ polarized light and another time 
 
 and, 
 
-\begin{equation}
+\begin{equation} \label{eq:Stokes_SP}
         S_P = M_{\mathrm{SLM}} \times \begin{pmatrix}1\\[2pt]0\\[2pt]1\\[2pt]0\end{pmatrix} = \begin{pmatrix}
         1 \\
         -\cos\delta \sin 2\theta \cos(2\theta-2\psi)
@@ -371,18 +371,18 @@ and,
 
 So finally we can write 
 
-\begin{subequations}
+\begin{subequations}\label{eq:stokes_X_Y}
     \begin{align}
     S_H(2) + S_P(3) &= (1+\cos\delta)\cos 2\psi = X_1, \\
     S_H(3) - S_P(2) &= (1+\cos\delta)\sin 2\psi = Y_1,
     \end{align}
 \end{subequations}
 
-\begin{equation}
+\begin{equation}\label{eq:delta}
 \boxed{\delta = \cos^{-1}\!\left[\sqrt{X_1^{2}+Y_1^{2}} - 1 \right]}
 \end{equation}
 
-\begin{equation}
+\begin{equation}\label{eq:psi}
 \boxed{\psi = \frac{1}{2}\tan^{-1}\!\left(\frac{Y_1}{X_1}\right)}.
 \end{equation}
 
@@ -391,28 +391,520 @@ where $\delta$ is \emph{linear retardance} and $\Psi$ is \emph{optical rotation}
 \section{Set up and Procedure}
 This experiment has two parts. In the first part, we did measure the angles of polarizers (P1 and P2) for Horizontal polarization. And in the later part we did Stokes polarimetry for SLM. 
 \subsection*{Part 1}
+\begin{enumerate}
+    \item First we had to find the \emph{Brewster's angle} for the interface. In our case it was air-glass interface. As we know, at Brewster's angle the reflected beam becomes s-polarised ($I_{V}$), so we placed the P1 such that the output intensity is minimum. So we got the angle of P1 for $I_{H}$.
+     
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.75\textwidth]{Image/part1.JPG}
+        \caption{Setup to find the axis of the first polarizer (P1) using Brewster's angle approch}
+    \end{figure}
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = 0.6\textwidth]{Image/part1.JPG}
-    \caption{Setup to find the axis of the first polarizer (P1) using Brewster's angle approch}
-\end{figure}
+    \item Similarly, for finding the polarization angle for P2, we placed this two polarizer in straight line and then kept the P1 at $I_{H}$ and rotated the P2 such that we got minimum intensity. Thus we got the polarization angle for P2 also.
+\end{enumerate}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = \textwidth]{Image/schematic.jpg}
     \caption{Schematic of the final setup}
+    \label{fig:slm_final_schematic}
 \end{figure}
+
+\subsection*{Part 2}
+In this part we configured the setup (see \cref{fig:slm_final_setup}) such that, the maximum measured intensity after the two polarizers does not exceed the $\mu A$ scale of the photodetector.
+
+\begin{enumerate}
+    \item The polarimetry was done for 4 different value of grey scale (applied voltage) value for SLM. 
+    \item Keeping P1 at $I_{H}$ and $I_{P}$, all stokes parameter were noted (after P2) for different grey scale (see \cref{fig:slm_final_setup}).
+\end{enumerate}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.8\textwidth]{Image/part2.JPG}
-    \caption{Final setup to find the Stokes measurement}
+    \caption{Final setup for Stokes polarimetry}
+    \label{fig:slm_final_setup}
 \end{figure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data analysis and calculation} 
+In the First part, we calculated the Brewster angle for the air-glass interface. 
+\begin{subequations}
+    \begin{align}
+        \theta_B &= \tan^{-1}\frac{n_{glass}}{n_{air}} \\
+        \theta_{B} & = 56.3^\circ
+    \end{align}
+\end{subequations}
+
+Now using the steps mentioned in \emph{part 1}, we found the angles of the polarizer P1 and P2. 
+
+\begin{table}[H]
+\centering
+
+\begin{tabular}{|c| c| c| c| c|}
+\toprule
+Polarizer & $I_H$ & $I_V$ & $I_P$ & $I_M$ \\
+\midrule
+P1 & 308 & 38  & 353 & 263 \\ \hline
+P2 & 116 & 206 & 161 & 71  \\
+\bottomrule
+\end{tabular}
+
+\caption{Angles of polarization for P1 and P2}
+\label{tab:polarization_P1_P2}
+\end{table}
+Now this angles were used for measurement in the second part. Using the mentioned method in part 2, the following measurements were done and tabulated.
+
+\begin{longtable}{|c| c| >{\centering\arraybackslash}p{1.2cm}|
+>{\centering\arraybackslash}p{1.2cm}|
+>{\centering\arraybackslash}p{1.2cm}|
+>{\centering\arraybackslash}p{1.2cm}|}
+
+\caption{Measured photodetector currents for different grey levels and input polarization states.} \\
+\toprule
+\multirow{2}{*}{Grey Level} &
+\multirow{2}{*}{Input polarization state} &
+\multicolumn{4}{c|}{Intensities (Photodetector Current) ($\mu$A)} \\
+\cline{3-6}
+ & & $I_H$ & $I_V$ & $I_P$ & $I_M$ \\
+\midrule
+\endfirsthead
+
+\multicolumn{6}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\toprule
+Grey Level & Input polarization state & $I_H$ & $I_V$ & $I_P$ & $I_M$ \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{6}{r}{Continued on next page} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+% data
+
+\multirow{2}{*}{0}
+ & H & 9.5 & 0.2 & 6.5 & 4.1 \\
+ & P & 56.2 & 87.8 & 139.8 & 3.1 \\
+
+\midrule
+\multirow{2}{*}{64}
+ & H & 10.1 & 0.4 & 8.1 & 3.8 \\
+ & P & 47.8 & 94.6 & 134 & 8 \\
+
+\midrule
+\multirow{2}{*}{128}
+ & H & 10.1 & 1.2 & 9.5 & 2.4 \\
+ & P & 36.1 & 113 & 124 & 25.8 \\
+
+\midrule
+\multirow{2}{*}{255}
+ & H & 2.5 & 8.4 & 8.8 & 2.1 \\
+ & P & 30.7 & 121.1 & 24 & 129.5 \\
+
+\end{longtable}
+
+
+\noindent Using the above table we have calulcated the second and third components of stokes parameters $S_{H} ($\cref{eq:Stokes_SH}) and $S_P$ ( \cref{eq:Stokes_SP}).
+
+Using the data and using \cref{eq:stokes_X_Y}, \cref{eq:delta} and \cref{eq:psi}, we plotted the variation of linear retardence and optical rotation over the grey scale value.
+
+\begin{figure}[H]
+\centering
+
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../data analysis/Plot1.pdf}
+    \caption{Variation of $\delta$ (linear retardance)}
+    \label{fig:plot1}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../data analysis/Plot2.pdf}
+    \caption{Variation of $\Psi$ (optical rotation)}
+    \label{fig:plot2}
+\end{subfigure}
+
+\caption{Variation over grey scale for SLM}
+\label{fig:bothplots}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Error Calculation}
+
+All experimentally measured quantities possess uncertainties arising primarily from the finite resolution of the photodetector and alignment limitations of optical components. Since the detector resolution dominates over statistical fluctuations, the uncertainty analysis in this experiment was carried out using the \textbf{Maximum Permissible Error (MPE)} method.
+
+The smallest measurable photodetector current in the experiment was
+
+\begin{equation}
+\Delta I = 0.1~\mu\text{A},
+\end{equation}
+
+which is taken as the maximum uncertainty associated with all measured intensity values.
+
+\subsection{Maximum Permissible Error Formula}
+
+For a function depending on measured variables,
+\begin{equation}
+f = f(x_1, x_2, \dots , x_n),
+\end{equation}
+the maximum propagated uncertainty is given by
+
+\begin{equation}
+\Delta f_{\mathrm{max}} =
+\sum_{i=1}^{n}
+\left|
+\frac{\partial f}{\partial x_i}
+\right|
+\Delta x_i .
+\end{equation}
+
+This method provides an upper bound on the uncertainty by assuming that all measurement errors contribute in the same direction.
+
+\subsection{Uncertainty in Normalised Stokes Parameters}
+
+The normalized Stokes parameters are
+
+\begin{subequations}
+    \begin{align}
+    S(2) &= \frac{I_H-I_V}{I_H+I_V}, \\
+    S(3) &= \frac{I_P-I_M}{I_H+I_V}.
+    \end{align}
+\end{subequations}
+
+\subsubsection{Maximum Error in \textit{S(2)}}
+
+Let
+\[
+S(2)=\frac{I_H-I_V}{I_H+I_V}.
+\]
+
+Using the MPE formula,
+
+\begin{equation}
+\Delta S(2)_{\max}
+=
+\left|\frac{\partial S(2)}{\partial I_H}\right|\Delta I
++
+\left|\frac{\partial S(2)}{\partial I_V}\right|\Delta I .
+\end{equation}
+
+The partial derivatives are
+
+\begin{subequations}
+    \begin{align}
+    \frac{\partial S(2)}{\partial I_H}
+    &=\frac{2I_V}{(I_H+I_V)^2},\\
+    \frac{\partial S(2)}{\partial I_V}
+    &=\frac{2I_H}{(I_H+I_V)^2}.
+    \end{align}
+\end{subequations}
+
+Hence,
+
+\begin{equation}
+\boxed{
+\Delta S(2)_{\max}
+=
+\frac{2\Delta I}{I_H+I_V}.
+}
+\end{equation}
+
+\subsubsection{Maximum Error in \textit{S(3)}}
+
+For
+\[
+S(3)=\frac{I_P-I_M}{I_H+I_V},
+\]
+
+\begin{equation}
+\Delta S(3)_{\max}
+=
+\sum
+\left|
+\frac{\partial S(3)}{\partial I_i}
+\right|\Delta I .
+\end{equation}
+
+Evaluating derivatives,
+
+\begin{subequations}
+    \begin{align}
+    \frac{\partial S(3)}{\partial I_P} &= \frac{1}{I_H+I_V},\\
+    \frac{\partial S(3)}{\partial I_M} &= \frac{1}{I_H+I_V},\\
+    \frac{\partial S(3)}{\partial I_H} &= 
+    \frac{|I_P-I_M|}{(I_H+I_V)^2},\\
+    \frac{\partial S(3)}{\partial I_V} &= 
+    \frac{|I_P-I_M|}{(I_H+I_V)^2}.
+    \end{align}
+\end{subequations}
+
+Thus,
+
+\begin{equation}
+\boxed{
+\Delta S(3)_{\max}
+=
+\frac{2\Delta I}{I_H+I_V}
++
+\frac{2|I_P-I_M|}{(I_H+I_V)^2}\Delta I.
+}
+\end{equation}
+
+\subsection{Uncertainty in \textit{X} and \textit{Y}}
+
+Applying MPE propagation,
+
+\begin{align}
+\Delta X_{\max} &= \Delta S_H(2)_{\max}
++ \Delta S_P(3)_{\max},\\
+\Delta Y_{\max} &= \Delta S_H(3)_{\max}
++ \Delta S_P(2)_{\max}.
+\end{align}
+
+\subsection{Maximum Error in Optical Rotation}
+
+Optical rotation is given by
+
+\begin{equation}
+\psi=\frac{1}{2}\tan^{-1}\left(\frac{Y}{X}\right).
+\end{equation}
+
+Using MPE propagation,
+
+\begin{equation}
+\Delta\psi_{\max}
+=
+\left|\frac{\partial \psi}{\partial X}\right|\Delta X
++
+\left|\frac{\partial \psi}{\partial Y}\right|\Delta Y.
+\end{equation}
+
+\begin{subequations}
+    \begin{align}
+    \frac{\partial \psi}{\partial X}
+    &=
+    -\frac{Y}{2(X^2+Y^2)},\\
+    \frac{\partial \psi}{\partial Y}
+    &=
+    \frac{X}{2(X^2+Y^2)}.
+    \end{align}
+\end{subequations}
+
+\begin{equation}
+\boxed{
+\Delta\psi_{\max}
+=
+\frac{|Y|\Delta X + |X|\Delta Y}
+{2(X^2+Y^2)}.
+}
+\end{equation}
+
+\subsection{Maximum Error in Linear Retardance}
+
+Linear retardance is calculated as
+
+\begin{equation}
+\delta=\cos^{-1}\left(\sqrt{X^2+Y^2}-1\right).
+\end{equation}
+
+Let
+\[
+Z=\sqrt{X^2+Y^2}-1.
+\]
+
+Then,
+
+\begin{equation}
+\Delta\delta_{\max}
+=
+\left|\frac{d\delta}{dZ}\right|\Delta Z.
+\end{equation}
+Since,
+\[
+\frac{d}{dZ}\cos^{-1}(Z)
+=
+\frac{1}{\sqrt{1-Z^2}},
+\]
+and 
+\[
+\Delta Z_{\max}
+=
+\frac{|X|\Delta X + |Y|\Delta Y}
+{\sqrt{X^2+Y^2}},
+\]
+we optain
+\begin{equation}
+\boxed{
+\Delta\delta_{\max}
+=
+\frac{|X|\Delta X + |Y|\Delta Y}
+{\sqrt{X^2+Y^2}\sqrt{1-(\sqrt{X^2+Y^2}-1)^2}}.
+}
+\end{equation}
+
+\subsection{Numerical Estimation of Maximum Error}
+
+The detector resolution gives the uncertainty in all measured
+intensities as
+
+\begin{equation}
+\Delta I = 0.1~\mu\text{A}.
+\end{equation}
+
+\noindent A sample calculation of uncertainty propagation is shown for Grey Level $=0$. Here are the measured intensities (normalised):
+
+\[
+I_H=9.5,\quad I_V=0.2,\quad I_P=6.5,\quad I_M=4.1~(\mu A)
+\]
+
+Total intensity:
+
+\[
+I = I_H+I_V = 9.7~\mu A.
+\]
+
+The normalized Stokes parameters are
+
+\begin{subequations}
+    \begin{align}
+    S_H(2) &= \frac{I_H-I_V}{I_H+I_V}
+    = \frac{9.5-0.2}{9.7}
+    =0.959,\\[6pt]
+    S_H(3) &= \frac{I_P-I_M}{I_H+I_V}
+    = \frac{6.5-4.1}{9.7}
+    =0.247.
+    \end{align}
+\end{subequations}
+
+Using the Maximum Permissible Error formula,
+
+\begin{equation}
+\Delta S_H(2)_{\max}
+=\frac{2\Delta I}{I_H+I_V}.
+\end{equation}
+
+Substituting values,
+
+\begin{equation}
+\Delta S_H(2)_{\max}
+=\frac{2(0.1)}{9.7}
+=0.0206.
+\end{equation}
+
+The maximum uncertainty in $S_H(3)$ is
+
+\begin{equation}
+\Delta S_H(3)_{\max}
+=
+\frac{2\Delta I}{I_H+I_V}
++
+\frac{2|I_P-I_M|}{(I_H+I_V)^2}\Delta I.
+\end{equation}
+
+Substituting numerical values,
+
+\begin{align}
+\Delta S_H(3)_{\max}
+&=
+\frac{0.2}{9.7}
++
+\frac{2(2.4)}{(9.7)^2}(0.1) \\
+&=0.0206+0.0051 \\
+&=0.0257.
+\end{align}
+
+For the $+45^\circ$ input state,
+
+\[
+I_H=56.2,\quad I_V=87.8,\quad I_P=139.8,\quad I_M=3.1.
+\]
+
+Total intensity:
+
+\[
+I=144.0~\mu A.
+\]
+
+\begin{align}
+S_P(2)&=\frac{56.2-87.8}{144.0}=-0.219,\\
+S_P(3)&=\frac{139.8-3.1}{144.0}=0.949.
+\end{align}
+
+\begin{align}
+\Delta S_P(2)_{\max}
+&=\frac{2(0.1)}{144.0}
+=0.00139,\\[6pt]
+\Delta S_P(3)_{\max}
+&=
+\frac{0.2}{144.0}
++
+\frac{2(136.7)}{(144)^2}(0.1) \\
+&=0.00139+0.00132 \\
+&=0.00271.
+\end{align}
+
+\begin{align}
+X &= 0.959+0.949=1.908,\\
+Y &= 0.247-(-0.219)=0.466.
+\end{align}
+
+Maximum uncertainties:
+
+\begin{align}
+\Delta X_{\max}
+&=0.0206+0.00271
+=0.0233,\\
+\Delta Y_{\max}
+&=0.0257+0.00139
+=0.0271.
+\end{align}
+
+\subsubsection*{Error in Optical Rotation}
+\[
+\psi=\frac12\tan^{-1}\left(\frac{Y}{X}\right).
+\]
+
+\begin{equation}
+\Delta\psi_{\max}
+=
+\frac{|Y|\Delta X+|X|\Delta Y}
+{2(X^2+Y^2)}.
+\end{equation}
+
+Substituting values,
+
+\begin{align}
+\Delta\psi_{\max}
+&=
+\frac{(0.466)(0.0233)+(1.908)(0.0271)}
+{2(1.908^2+0.466^2)} \\
+&=0.0081~\text{rad}.
+\end{align}
+\subsubsection*{Error in Linear Retardance}
+\[
+\delta=\cos^{-1}\left(\sqrt{X^2+Y^2}-1\right).
+\]
+
+\begin{equation}
+\Delta\delta_{\max}
+=
+\frac{|X|\Delta X+|Y|\Delta Y}
+{\sqrt{X^2+Y^2}\sqrt{1-(\sqrt{X^2+Y^2}-1)^2}}.
+\end{equation}
+
+Substituting numerical values,
+
+\begin{equation}
+\Delta\delta_{\max}=0.056~\text{rad}.
+\end{equation}
+
+The same procedure was followed for all other grey levels to obtain the maximum uncertainties in linear retardance and optical rotation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Source of Error}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
