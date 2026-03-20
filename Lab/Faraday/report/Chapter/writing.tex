@@ -197,6 +197,20 @@ We have followed the following procedure to do this experiment:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data analysis and calculation} 
+As per the procedure we took the first reading using the setup (see \cref{fig:setup1}). In this setup we used the following parameters to calculated the magnetic field from the applied current. 
+\begin{itemize}
+    \item Number of turns in the coil: $2508$.
+    \item Number of turns per unit length: $N = \frac{2508}{15 \ \text{cm}} = 167.2 \ \text{cm}^{-1}$
+    \item Refractive index of the glass rod: 1.717
+    \item Wavelength of the laser: $\lambda = 650 \ \text{nm}$
+\end{itemize}
+And we used the following relation for the magnetic field
+\begin{equation}
+    H = \pi NI
+\end{equation}
+
+We measured the angle of rotation of the linearly polarized light using the P2. The method to measure the angle in the polarizer was similar to that of a Vernier caliper. Hence, the $\text{Least Count of polarizer} = 1^\circ - 0.9^\circ = 0.1^\circ.$
+
 
 \begin{longtable}{|c|c|c|c|c|}
 
@@ -204,7 +218,7 @@ We have followed the following procedure to do this experiment:
 \caption{Rotation of angle due to the Faraday-Magnetic effect} \\
 \toprule
 
-Current & Magnetic field & Theta in P2(Degrees) & Angle(Diff) (min) & Verdet constant \\
+Current (A) & Magnetic field (Oe) & Theta in P2 ($^\circ$) & Angle(Diff) (min) & Verdet constant \\
 
 \midrule
 \endfirsthead
@@ -216,9 +230,9 @@ Current & Magnetic field & Theta in P2(Degrees) & Angle(Diff) (min) & Verdet con
 \midrule
 \endhead
 
-\midrule
+\hline
 \multicolumn{5}{|r|}{Continued on next page} \\
-\bottomrule
+\hline
 \endfoot
 
 \bottomrule
@@ -241,17 +255,35 @@ Current & Magnetic field & Theta in P2(Degrees) & Angle(Diff) (min) & Verdet con
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.8\textwidth]{../data analysis/Plot1.pdf}
+    \includegraphics[width = 0.7\textwidth]{../data analysis/Plot1.pdf}
     \caption{Variation of optical rotation angle over applied magnetic field}
     \label{fig:plot1}
 \end{figure}
 
+\subsection{Calculation of Verdet Constant}
+
+From the formula:
+\begin{equation}
+\Psi = VLH, 
+\end{equation}
+Here $\Psi$ is optical rotation, $V$ is the Verdet constant, $L$ is the length of the glass, $H$ is magnetic field. We know the Verdet constant $V$ is given by:
+\begin{equation}
+V = \frac{\Psi}{L \cdot H} = \frac{\text{slope}}{\text{L}}. 
+\end{equation}
+
+From the slope of the $\Psi$ vs $H$ plot,
+\[
+V = \frac{0.196 \pm 0.004}{10} = 0.0196 \pm 0.004 \text{ min Oe}^{-1} \text{ cm}^{-1},
+\]
+
+
+For the second part, we tabulated for verifying Malus's Law. In this part we did not change the angle of the polarizer and only measure the intensity over the variation of the current.
 \begin{longtable}{|c|c|c|}
 
 \caption{Table for variation of intensity over current variation} \\
 \toprule
 
-Current & Magnetic field & Intensity ($\mu A$) \\
+Current (A) & Magnetic field (Oe) & Intensity ($\mu A$) \\
 
 \midrule
 \endfirsthead
@@ -290,27 +322,18 @@ Current & Magnetic field & Intensity ($\mu A$) \\
     \caption{Variation of Intensity over current}
     \label{fig:plot2}
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Sources of Error}
 
-\subsection{Thermal and Environmental Effects}
-\begin{itemize}
-    \item \textbf{Sample Heating:} The resistive heating of the electromagnet coil can transfer heat to the flint glass sample. This temperature increase can alter the Verdet constant of the glass and produce convection currents that locally vary the refractive index, introducing unwanted intensity changes.
-    \item \textbf{Laser Intensity Drift:} Semiconductor diode lasers often exhibit slow temporal variations in output intensity, particularly before the laser reaches thermal equilibrium. If the laser is not allowed sufficient warm-up time, this drift can be mischaracterized as a change in transmitted intensity due to polarization rotation.
-\end{itemize}
+\subsection{Verification for Malus's Law}
+The plot of intensity versus current shows a non-linear increase in intensity with increasing current. Since the current through the electromagnet is directly proportional to the magnetic field, and hence to the rotation angle $\theta$, this effectively represents the variation of intensity with polarization angle. According to Malus's law,
+\[
+I = I_{0}cos^{2}\theta
+\]
+the transmitted intensity should vary as a cosine-squared function of the angle between the P1 and P2. In the present setup, the P2 is initially oriented perpendicular to the plane of polarization. Due to this, an additional phase shift of $\frac{\pi}{2}$ is introduced, and the intensity follows a $\sin^2\theta$ dependence instead of $\cos^2\theta$. The fitted curve is:
+\[
+I(\text{Intensity}) = 57.1 \sin^2(0.19\ i(\text{current}) + 0.03) + 0.7
+\]
+shows relation with the experimental data points, confirming the sinusoidal dependence of intensity. Thus, the experimental results successfully verify Malus's law within experimental uncertainty.
 
-\subsection{Instrumental and Alignment Limitations}
-\begin{itemize}
-    \item \textbf{Detector Non-linearity and Spatial Sensitivity:} The photodiode signal may not respond perfectly linearly to incident light intensity. Furthermore, if the laser beam is not strictly centered on the active area of the photodiode, any slight beam deflection caused by rotating the optical components can cause spurious intensity readings.
-    \item \textbf{Magnetic Field Non-uniformity:} The standard theoretical formula $\varphi = VHL$ assumes a perfectly uniform magnetic field $H$ across the entire length of the optical medium. In reality, the field lines begin to diverge near the ends of the solenoid, meaning the magnetic field is not perfectly constant across the entire length of the glass rod.
-\end{itemize}
-
-\subsection{Observational Uncertainty}
-\begin{itemize}
-    \item \textbf{Parallax Error in Angular Measurement:} The physical design of the setup, specifically the proximity of the electromagnet's cylindrical housing to the analyzing polarizer, restricts the observer's direct line of sight to the graduated scale. This obstruction forces the experimenter to read the angle from an oblique viewing position, introducing a parallax error that reduces the precision of the rotational measurements.
-    \item \textbf{Resolution of the Null Point:} Accurately determining the exact angle of minimum transmitted intensity (the "darkness" point) is limited by the mechanical resolution (least count) of the precision polarizer mount. Additionally, at near-zero intensity, the signal-to-noise ratio of the photodiode drops, making the exact minimum difficult to pinpoint precisely.
-    \item \textbf{Backlash Error:} Mechanical play or backlash in the rotational mount of the analyzing polarizer can introduce discrepancies if the minimum intensity angle is approached from different directions (clockwise vs. counter-clockwise). Though while taking the reading we maintain single convention (clockwise) to make the P2 for minimum intensity.
-\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Propagation of Error}
 
@@ -347,14 +370,14 @@ we calculate the error for a data from the table of observations.
 
 \begin{align*}
 \theta &= 240 \ \text{min}, \\
-H &= 1260.6583, \\
-V &= 0.019037673
+H &= 1260.6583 \ \text{Oe}, \\
+V &= 0.019037673 \ \text{min}\ \text{Oe}^{-1}\text{cm}^{-1}
 \end{align*}
 
 The instrumental uncertainties are taken as:
 
 \begin{align*}
-\Delta \theta &= 6 \ \text{min}, \\
+\Delta \theta &= 0.1^\circ = 6 \ \text{min}, \\
 \Delta I &= 0.01 \ \text{A}, \\
 L &= 10 \ \text{cm}
 \end{align*}
@@ -382,7 +405,32 @@ Hence, the maximum possible error is
 = 5.69 \times 10^{-4}
 \end{equation}
 
-Therefore, the Verdet constant for this data point is $V = (1.90 \pm 0.057)\times 10^{-2}$
+Therefore, the Verdet constant for this data point is $V = (1.90 \pm 0.057)\times 10^{-2} \text{ min Oe}^{-1} \text{ cm}^{-1}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sources of Error}
+
+\subsection{Thermal and Environmental Effects}
+\begin{itemize}
+    \item \textbf{Sample Heating:} The resistive heating of the electromagnet coil can transfer heat to the flint glass sample. This temperature increase can alter the Verdet constant of the glass and produce convection currents that locally vary the refractive index, introducing unwanted intensity changes.
+    \item \textbf{Laser Intensity Drift:} Semiconductor diode lasers often exhibit slow temporal variations in output intensity, particularly before the laser reaches thermal equilibrium. If the laser is not allowed sufficient warm-up time, this drift can be mischaracterized as a change in transmitted intensity due to polarization rotation.
+\end{itemize}
+
+\subsection{Instrumental and Alignment Limitations}
+\begin{itemize}
+    \item \textbf{Detector Non-linearity and Spatial Sensitivity:} The photodiode signal may not respond perfectly linearly to incident light intensity. Furthermore, if the laser beam is not strictly centered on the active area of the photodiode, any slight beam deflection caused by rotating the optical components can cause spurious intensity readings.
+    \item \textbf{Magnetic Field Non-uniformity:} The standard theoretical formula $\varphi = VHL$ assumes a perfectly uniform magnetic field $H$ across the entire length of the optical medium. In reality, the field lines begin to diverge near the ends of the solenoid, meaning the magnetic field is not perfectly constant across the entire length of the glass rod.
+\end{itemize}
+
+\subsection{Observational Uncertainty}
+\begin{itemize}
+    \item \textbf{Parallax Error in Angular Measurement:} The physical design of the setup, specifically the proximity of the electromagnet's cylindrical housing to the analyzing polarizer, restricts the observer's direct line of sight to the graduated scale. This obstruction forces the experimenter to read the angle from an oblique viewing position, introducing a parallax error that reduces the precision of the rotational measurements.
+    \item \textbf{Resolution of the Null Point:} Accurately determining the exact angle of minimum transmitted intensity (the "darkness" point) is limited by the mechanical resolution (least count) of the precision polarizer mount. Additionally, at near-zero intensity, the signal-to-noise ratio of the photodiode drops, making the exact minimum difficult to pinpoint precisely.
+    \item \textbf{Backlash Error:} Mechanical play or backlash in the rotational mount of the analyzing polarizer can introduce discrepancies if the minimum intensity angle is approached from different directions (clockwise vs. counter-clockwise). Though while taking the reading we maintain single convention (clockwise) to make the P2 for minimum intensity.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
+We got Verdet constant of the glass rod is $V = 0.0196 \pm 0.004 \text{ min Oe}^{-1} \text{ cm}^{-1}$ for wavelength $650 \ \text{nm}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
