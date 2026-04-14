@@ -1,0 +1,84 @@
+% Give your report a title
+\newcommand\reporttitle{\textbf{Advanced Optics Laboratory (PH4201})}
+
+% Add an experiment 
+\newcommand\expno{\textbf{Experiment: 04}}
+
+% Insert course code, name, quartile number)
+\newcommand\reportsubtitle{
+{Fibre Optics}
+}
+
+% Add your group number (for DBL) or any other text.
+\newcommand\groupnumber{
+\textbf{\Large Group B07}
+}
+
+% Insert authors and student numbers here
+\newcommand\reportauthors{\large 
+Abhi Mondal & 22MS075 \\
+}
+
+% Add the name of your lab instructor 
+\newcommand\grouptutor{
+\begin{center}
+    \textbf{Lab Instructors:} \\
+\end{center}
+\large Prof. Nirmalya Ghosh\\
+\vspace{2mm}
+\large Prof. Kamaraju Natarajan
+}
+
+% Department and University 
+\newcommand\placeanddate{
+{Department of Physical Science \\ Indian Institute of Science Education and Research Kolkata}\\
+\today
+}
+
+% hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% Change bullet style for level 1, 2 and 3 respectively for itemize
+% \renewcommand{\labelitemi}{\scriptsize\textcolor{blue}{$\bullet$}}% level 1
+% \renewcommand{\labelitemii}{\scriptsize\textcolor{blue}{$\square$}}% level 2
+% \renewcommand{\labelitemiii}{\textcolor{blue}{$\circ$}}% level 3
+
+\renewcommand{\labelitemi}{\small\textcolor{blue}{\ding{228}}} % level 1
+\renewcommand{\labelitemii}{\small\textcolor{blue}{$\bullet$}}% level 2
+\renewcommand{\labelitemiii}{\tiny\textcolor{blue}{\ding{86}}}% level 3
+
+% Change bullet style for level 1, 2 and 3 respectively for enumerate
+\renewcommand{\labelenumi}{\textbf{\textcolor{blue}{\arabic*.}}}% level 1
+\renewcommand{\labelenumii}{\textbf{\textcolor{blue}{[\alph*]}}}% level 2
+\renewcommand{\labelenumiii}{\textbf{\textcolor{blue}{\roman*.}}}% level 3
+
+% Have reference labels be linked to section (section 3 will have fig. 3.1 etc.)
+\counterwithin{equation}{section} % For equations
+\counterwithin{figure}{section} % For figures
+\counterwithin{table}{section} % For tables
+
+% Creates a beautiful header/footer
+\pagestyle{fancy}
+\lhead{\includegraphics[height = 20pt]{Image/logo/IISER_k.png}}
+\rhead{\reporttitle}
+\renewcommand{\footrulewidth}{0.4pt}
+\cfoot{Page \thepage}
+
+% Formats section, subsection and subsubsection titles respectively 
+\titleformat{\section}{\sffamily\color{blue}\Large\bfseries}{\thesection\enskip\color{gray}\textbar\enskip}{0cm}{} % Formats section titles
+
+\titleformat{\subsection}{\sffamily\color{blue}\large\bfseries}{\thesubsection\enskip\color{gray}\textbar\enskip}{0cm}{} % Formats subsection titles
+
+\titleformat{\subsubsection}{\sffamily\color{blue}\bfseries}{\thesubsubsection\enskip\color{gray}\textbar\enskip}{0cm}{} % Formats subsubsection titles
+
+% Formats captions
+\DeclareCaptionFont{blue}{\color{blue}}
+\captionsetup{labelfont={blue,bf}}
+
+
+

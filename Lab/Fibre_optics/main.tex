@@ -1,0 +1,24 @@
+\documentclass[a4paper, table]{article}
+\input{General/Preamble}
+\input{General/Settings}
+\usepackage{times} %font
+
+\begin{document}
+
+\input{Chapter/Frontpage}
+\newpage
+
+% Generates a ToC without page number
+{\hypersetup{linkcolor=black!80} % Keeps the ToC black even with non-black linkcolor
+\tableofcontents\thispagestyle{empty}}
+\newpage
+
+% Creates the introduction, starting page numbering
+\pagenumbering{arabic}
+\input{Chapter/writing}
+
+% Creates references using the Biblatex 
+% \bibliographystyle{plain}
+% \bibliography{General/Reference}
+
+\end{document}
